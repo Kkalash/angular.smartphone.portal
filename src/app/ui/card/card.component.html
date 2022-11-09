@@ -1,0 +1,24 @@
+<div
+  class="cursor-pointer"
+  [routerLink]="['/' + smartphoneListRoute, smartphoneCard.id]"
+>
+  <img class="d-block" [src]="smartphoneCard.bilder[0]" />
+  <div class=" pt-2">
+    <span class="d-block">{{ smartphoneCard.preis | preisFormatter }}</span>
+    <div
+      class="stars fs-6"
+      style="--rating: {{ smartphoneCard.ranking }};"
+      [attr.aria-label]="'Ranking von diesem Produkt ist {{ smartphoneCard.ranking }} von 5.'"
+    >
+      ({{ smartphoneCard.bewerteranzahl }})</div
+    >
+    <span class="text-underline-hover">
+      <span class="d-block text-muted fs-8 text-uppercase">
+        {{ smartphoneCard.hersteller.name }}
+      </span>
+      <p>
+        {{ smartphoneCard.name }} ({{ smartphoneCard.bildschirmgrosse }} Zoll)
+      </p>
+    </span>
+  </div>
+</div>

@@ -1,0 +1,42 @@
+$utilities: map-merge(
+  $utilities,
+  (
+    'color': (
+      property: color,
+      class: text,
+      state: hover active,
+      values:
+        map-merge(
+          $theme-colors,
+          (
+            'white': $white,
+            'body': $body-color,
+            'muted': $text-muted,
+            'black-50': rgba($black, 0.5),
+            'white-50': rgba($white, 0.5),
+            'reset': inherit,
+          )
+        ),
+    ),
+    'font-size': (
+      rfs: true,
+      property: font-size,
+      class: fs,
+      values:
+        map-merge(
+          $font-sizes,
+          (
+            7: $font-size-base * 0.875,
+            8: $font-size-base * 0.75,
+            9: $font-size-base * 0.625,
+            10: $font-size-base * 0.5,
+          )
+        ),
+    ),
+    'cursor': (
+      property: cursor,
+      class: cursor,
+      values: auto default none help pointer progress wait text move not-allowed,
+    ),
+  )
+);

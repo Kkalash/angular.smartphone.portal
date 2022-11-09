@@ -1,11 +1,24 @@
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { UiModule } from './ui/ui.moudle';
+import { CoreModule } from './core/core.module';
+import { InMemoryWebApiService } from './_shared/servicers/in-memory-web-api.service';
 
 @NgModule({
-  imports: [BrowserModule, AppRoutingModule, UiModule],
+  imports: [
+    AppRoutingModule,
+    BrowserModule,
+    HttpClientModule,
+    CoreModule,
+    HttpClientInMemoryWebApiModule.forRoot(InMemoryWebApiService, {
+      apiBase: 'api/smartphone-portal/v1',
+      dataEncapsulation: false,
+      passThruUnknownUrl: true,
+    }),
+  ],
   declarations: [AppComponent],
   providers: [],
   bootstrap: [AppComponent],

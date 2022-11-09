@@ -1,1 +1,21 @@
 /* You can add global styles to this file, and also import other style files */
+@import 'node_modules/bootstrap/scss/bootstrap';
+
+@import './bootstrap-ultilities';
+
+@import 'node_modules/bootstrap/scss/utilities/api';
+
+html,
+body {
+  background: transparent;
+  height: calc(100vh - calc(100vh - 100%));
+  margin: 0 auto;
+}
+
+body {
+  max-width: 100rem;
+}
+
+.text-underline-hover:hover {
+  text-decoration: underline;
+}
