@@ -1,11 +1,15 @@
-$img-height-width: 14rem;
+$img-height-width: 7.5rem;
 $start-color: lightgray;
-$star-background: #fc0;
+$star-background: #000;
 
-img {
+.img-thum {
   max-width: $img-height-width;
   max-height: $img-height-width;
-  margin: 0 auto;
+}
+
+.selected-bild {
+  max-height: 32.5rem;
+  min-height: 21.875rem;
 }
 
 .stars {
@@ -18,6 +22,7 @@ img {
 
   &::before {
     content: '★★★★★';
+    letter-spacing: 3px;
     background: linear-gradient(
       90deg,
       $star-background var(--percent),

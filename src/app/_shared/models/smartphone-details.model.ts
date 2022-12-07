@@ -1,4 +1,4 @@
-import { Prozessor } from './prozessor.model';
+import { Prozessor } from '../interfaces/prozessor.interface';
 import { SmartphoneCard } from './smartphone-card.model';
 
 export class SmartphoneDetails extends SmartphoneCard {

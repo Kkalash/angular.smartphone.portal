@@ -1,7 +1,7 @@
 import { PreisType } from './enums/preis-type.enum';
-import { Hersteller } from './models/hersteller.model';
-import { PreisKategory } from './models/preis-kategory.model';
-import { Prozessor } from './models/prozessor.model';
+import { Hersteller } from './interfaces/hersteller.interface';
+import { PreisKategory } from './interfaces/preis-kategory.interface';
+import { Prozessor } from './interfaces/prozessor.interface';
 import { SmartphoneDetails } from './models/smartphone-details.model';
 
 export class WebApiData {
@@ -76,7 +76,7 @@ export class WebApiData {
 
   public static smartphons: SmartphoneDetails[] = [
     {
-      id: 1,
+      id: '1',
       name: 'Galaxy S22 Ultra Smartphone',
       preis: 1422.58,
       bildschirmgrosse: '6,8',
@@ -90,12 +90,15 @@ export class WebApiData {
       bewerteranzahl: 42,
       bilder: [
         'https://i.otto.de/i/otto/9a9eebbb-094b-58b3-b803-83c92be9d88b?w=1609&h=2500',
+        'https://i.otto.de/i/otto/1a5c79b7-02cb-5a1a-a5c9-748cb7cbe06c?h=520&w=551&sm=clamp',
+        'https://i.otto.de/i/otto/64dfc01a-80da-561e-8f7c-bea830ed99be?h=520&w=551&sm=clamp',
+        'https://i.otto.de/i/otto/3e93dce7-fd27-5c21-bfe8-5340b9b249cf?w=1610&h=2500',
       ],
       preisKategory: WebApiData.preisKategorien[2],
       hersteller: WebApiData.hersteller[1],
     },
     {
-      id: 2,
+      id: '2',
       name: 'Galaxy Z Flip4 Smartphone',
       preis: 1099.0,
       bildschirmgrosse: '6,7',
@@ -114,7 +117,7 @@ export class WebApiData {
       hersteller: WebApiData.hersteller[1],
     },
     {
-      id: 3,
+      id: '3',
       name: 'Galaxy Z Fold4 Smartphone',
       preis: 1349.21,
       bildschirmgrosse: '7,6',
@@ -133,7 +136,7 @@ export class WebApiData {
       hersteller: WebApiData.hersteller[1],
     },
     {
-      id: 4,
+      id: '4',
       name: 'Galaxy M23 5G Smartphone',
       preis: 392.24,
       bildschirmgrosse: '6,6',

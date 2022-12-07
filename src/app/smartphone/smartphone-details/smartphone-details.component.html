@@ -1,3 +1,33 @@
-<div class="d-flex flex-column h-100">
-  <p>Test</p>
+<div *ngIf="item" class="d-flex flex-column h-100 overflow-auto">
+  <div class="border-bottom border-4 border-light pb-4">
+    <p class="fw-bold">{{ item.name }} ({{ item.bildschirmgrosse }})</p>
+    <div
+      class="d-flex fs-3 stars"
+      style="--rating: {{ item.ranking }};"
+      [attr.aria-label]="'Ranking von diesem Produkt ist {{ item.ranking }} von 5.'"
+    >
+      <span class="ms-2 fs-5"> ({{ item.bewerteranzahl }}) </span>
+    </div>
+  </div>
+  <div class="row my-3">
+    <div class="col-2">
+      <div class="d-flex flex-column align-items-center">
+        <img
+          class="my-2 d-block cursor-pointer p-1 img-thum"
+          *ngFor="let bild of item.bilder"
+          [src]="bild"
+          [ngClass]="{'border border-dark' : bild === selectedBild}"
+          (mouseover)="selectedBild = bild"
+        />
+      </div>
+    </div>
+    <div class="col-7">
+      <img class="selected-bild" [src]="selectedBild" />
+    </div>
+    <div class="col-3"></div>
+  </div>
+  <div class="border-bottom border-4 border-light pb-4"></div>
+  <div class="row">
+    <h2 class="fw-bold">Artikelbeschreinung</h2>
+  </div>
 </div>

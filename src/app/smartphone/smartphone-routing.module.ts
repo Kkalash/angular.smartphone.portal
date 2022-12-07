@@ -5,14 +5,6 @@ import { SmartphoneDetailsResolver } from '../_shared/resolvers/smartphone-detai
 import { SmartphoneDetailsComponent } from './smartphone-details/smartphone-details.component';
 import { SmartphoneListComponent } from './smartphone-list/smartphone-list.component';
 
-// const routes: Routes = [
-//   {
-//     path: '',
-//     pathMatch: 'full',
-//     component: SmartphoneListComponent,
-//   },
-// ];
-
 const routes: Routes = [
   {
     path: '',
@@ -24,7 +16,9 @@ const routes: Routes = [
       },
       {
         path: `:${RouteParam.SmartphoneId}`,
-        resolve: { smartphoneDetails: SmartphoneDetailsResolver },
+        resolve: {
+          [RouteParam.SmartphoneDetails]: SmartphoneDetailsResolver,
+        },
         children: [
           {
             path: '',

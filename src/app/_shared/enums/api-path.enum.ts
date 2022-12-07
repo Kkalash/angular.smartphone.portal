@@ -1,4 +1,4 @@
 export enum ApiPath {
   SmartphoneList = 'smartphone-list',
-  SmartphoneDetails = 'smartphone-list/smartphone-details',
+  SmartphoneDetails = 'smartphone-details',
 }

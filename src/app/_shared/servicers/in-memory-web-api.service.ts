@@ -24,24 +24,17 @@ export class InMemoryWebApiService implements InMemoryDbService {
   get(reqInfo: RequestInfo): Observable<any> {
     const apiPathLevels = this.getApiPathLevels(reqInfo);
 
-    return this.getSmartphons(reqInfo);
     switch (apiPathLevels[0]) {
       case ApiPath.SmartphoneList:
+        return this.getSmartphons(reqInfo);
+      case ApiPath.SmartphoneDetails:
+        return this.getSmartphonDetails(reqInfo);
       default:
         return undefined;
     }
   }
 
   post(reqInfo: RequestInfo): Observable<any> {
-    const apiPathLevels = this.getApiPathLevels(reqInfo);
-
-    switch (apiPathLevels[0]) {
-      default:
-        return undefined;
-    }
-  }
-
-  put(reqInfo: RequestInfo): Observable<any> {
     const apiPathLevels = this.getApiPathLevels(reqInfo);
 
     switch (apiPathLevels[0]) {
@@ -100,7 +93,23 @@ export class InMemoryWebApiService implements InMemoryDbService {
     });
   }
 
-  // POST
+  private getSmartphonDetails(reqInfo: RequestInfo): Observable<any> {
+    return reqInfo.utils.createResponse$(() => {
+      console.log(
+        `HTTP GET override: "${ApiPath.SmartphoneDetails}" (URL: ${reqInfo.url}`,
+      );
 
-  // DELETE
+      const urlSegments = reqInfo.url.split('/');
+      const id = urlSegments[urlSegments.length - 1];
+
+      const data = WebApiData.smartphons.find((s) => s.id === id);
+
+      const options: ResponseOptions = {
+        body: JSON.parse(JSON.stringify(data)),
+        status: STATUS.OK,
+      };
+
+      return this.finishOptions(options, reqInfo);
+    });
+  }
 }

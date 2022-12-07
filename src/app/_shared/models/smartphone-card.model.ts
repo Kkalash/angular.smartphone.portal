@@ -1,8 +1,8 @@
-import { Hersteller } from './hersteller.model';
-import { PreisKategory } from './preis-kategory.model';
+import { Hersteller } from '../interfaces/hersteller.interface';
+import { PreisKategory } from '../interfaces/preis-kategory.interface';
 
 export class SmartphoneCard {
-  public id: number;
+  public id: string;
   public name: string;
   public preis: number;
   public bildschirmgrosse: string;
