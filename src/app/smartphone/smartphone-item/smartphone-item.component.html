@@ -1,0 +1,65 @@
+<div *ngIf="item" class="d-flex flex-column h-100 details-ccontainer">
+  <div class="border-bottom border-5 border-light pb-4">
+    <p class="fw-bold">{{ item.name }} ({{ item.bildschirmgrosse }})</p>
+    <div
+      class="d-flex fs-3 stars"
+      style="--rating: {{ item.ranking }};"
+      [attr.aria-label]="'Ranking von diesem Produkt ist {{ item.ranking }} von 5.'"
+    >
+      <span class="ms-2 fs-5"> ({{ item.bewerteranzahl }}) </span>
+    </div>
+  </div>
+  <div class="row my-3">
+    <div class="col-2">
+      <div class="d-flex flex-column align-items-center">
+        <img
+          class="my-2 d-block cursor-pointer p-1 img-thum"
+          *ngFor="let bild of item.bilder"
+          [src]="bild"
+          [ngClass]="{'border border-dark' : bild === selectedBild}"
+          (mouseover)="selectedBild = bild"
+        />
+      </div>
+    </div>
+    <div class="col-7 text-center">
+      <img class="selected-bild" [src]="selectedBild" />
+    </div>
+    <div class="col-3"></div>
+  </div>
+  <div class="row border-top border-5 border-light pt-4">
+    <div class="col-md-7 col-sm-12">
+      <div class="d-flex justify-content-between">
+        <h5 class="fw-bold">Artikelbeschreinung</h5>
+        <h3
+          class="fw-bold text-uppercase hersteller-name"
+          >{{ item.hersteller.name }}</h3
+        >
+      </div>
+      <p class="text-muted">{{ item.beschreibung }}</p>
+
+      <div class="border-top border-5 border-light pt-4">
+        <ka-smartphone-details [item]="item"></ka-smartphone-details>
+      </div>
+    </div>
+
+    <div *ngIf="item.hersteller" class="col-md-5 col-sm-12">
+      <h5>Herrstellerkontakt</h5>
+      <ul class="fa-ul">
+        <li *ngIf="item.hersteller.telefonnummer"
+          ><a
+            [href]="item.hersteller.telefonnummer | telNr"
+            class="link-secondary"
+            ><span class="fa-li"><i class="fa-solid fa-phone-flip"></i></span
+            >{{ item.hersteller.telefonnummer }}</a
+          ></li
+        >
+        <li *ngIf="item.hersteller.email"
+          ><a [href]="item.hersteller.email | mailto" class="link-secondary"
+            ><span class="fa-li"><i class="fa-solid fa-envelope"></i></span
+            >{{ item.hersteller.email }}</a
+          ></li
+        >
+      </ul>
+    </div>
+  </div>
+</div>

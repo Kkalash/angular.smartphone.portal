@@ -33,6 +33,17 @@ $utilities: map-merge(
           )
         ),
     ),
+    'border-color': (
+      property: border-color,
+      class: border,
+      values:
+        map-merge(
+          $theme-colors,
+          (
+            'light': #f0f0f0,
+          )
+        ),
+    ),
     'cursor': (
       property: cursor,
       class: cursor,

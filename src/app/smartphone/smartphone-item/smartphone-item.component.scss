@@ -1,0 +1,43 @@
+$img-thum-height-width: 7.5rem;
+$start-color: lightgray;
+$star-background: #000;
+
+.details-ccontainer {
+  overflow-x: hidden;
+
+  .hersteller-name {
+    font-family: fantasy;
+  }
+
+  .img-thum {
+    max-width: $img-thum-height-width;
+    max-height: $img-thum-height-width;
+  }
+
+  .selected-bild {
+    max-height: 32.5rem;
+    min-height: 21.875rem;
+  }
+
+  .stars {
+    --percent: calc(var(--rating) / 5 * 100%);
+
+    display: inline-block;
+    font-size: var(--star-size);
+    font-family: Times;
+    line-height: 1;
+
+    &::before {
+      content: '★★★★★';
+      letter-spacing: 3px;
+      background: linear-gradient(
+        90deg,
+        $star-background var(--percent),
+        $start-color var(--percent)
+      );
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  }
+}

@@ -1,7 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { Subscription } from 'rxjs';
-import { RouteParam } from '../../_shared/enums/route-param.enum';
+import { Component, Input } from '@angular/core';
 import { SmartphoneDetails } from '../../_shared/models/smartphone-details.model';
 
 @Component({
@@ -9,20 +6,8 @@ import { SmartphoneDetails } from '../../_shared/models/smartphone-details.model
   templateUrl: './smartphone-details.component.html',
   styleUrls: ['./smartphone-details.component.scss'],
 })
-export class SmartphoneDetailsComponent implements OnInit {
-  private readonly subscription: Subscription = new Subscription();
+export class SmartphoneDetailsComponent {
+  @Input() item: SmartphoneDetails;
 
-  selectedBild: string;
-  item: SmartphoneDetails;
-
-  constructor(private route: ActivatedRoute) {}
-
-  ngOnInit(): void {
-    this.subscription.add(
-      this.route.data.subscribe((data) => {
-        this.item = data[RouteParam.SmartphoneDetails];
-        this.selectedBild = this.item.bilder[0];
-      }),
-    );
-  }
+  constructor() {}
 }

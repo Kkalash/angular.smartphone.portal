@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { RouteParam } from '../_shared/enums/route-param.enum';
 import { SmartphoneDetailsResolver } from '../_shared/resolvers/smartphone-details.resolver';
-import { SmartphoneDetailsComponent } from './smartphone-details/smartphone-details.component';
+import { SmartphoneItemComponent } from './smartphone-item/smartphone-item.component';
 import { SmartphoneListComponent } from './smartphone-list/smartphone-list.component';
 
 const routes: Routes = [
@@ -22,7 +22,7 @@ const routes: Routes = [
         children: [
           {
             path: '',
-            component: SmartphoneDetailsComponent,
+            component: SmartphoneItemComponent,
           },
         ],
       },

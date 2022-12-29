@@ -14,8 +14,12 @@ body {
 
 body {
   max-width: 100rem;
-}
 
-.text-underline-hover:hover {
-  text-decoration: underline;
+  .text-underline-hover:hover {
+    text-decoration: underline;
+  }
+
+  a {
+    text-decoration: none;
+  }
 }

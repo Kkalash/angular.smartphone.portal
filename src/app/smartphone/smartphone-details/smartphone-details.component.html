@@ -1,33 +1,39 @@
-<div *ngIf="item" class="d-flex flex-column h-100 overflow-auto">
-  <div class="border-bottom border-4 border-light pb-4">
-    <p class="fw-bold">{{ item.name }} ({{ item.bildschirmgrosse }})</p>
-    <div
-      class="d-flex fs-3 stars"
-      style="--rating: {{ item.ranking }};"
-      [attr.aria-label]="'Ranking von diesem Produkt ist {{ item.ranking }} von 5.'"
-    >
-      <span class="ms-2 fs-5"> ({{ item.bewerteranzahl }}) </span>
-    </div>
-  </div>
-  <div class="row my-3">
-    <div class="col-2">
-      <div class="d-flex flex-column align-items-center">
-        <img
-          class="my-2 d-block cursor-pointer p-1 img-thum"
-          *ngFor="let bild of item.bilder"
-          [src]="bild"
-          [ngClass]="{'border border-dark' : bild === selectedBild}"
-          (mouseover)="selectedBild = bild"
-        />
-      </div>
-    </div>
-    <div class="col-7">
-      <img class="selected-bild" [src]="selectedBild" />
-    </div>
-    <div class="col-3"></div>
-  </div>
-  <div class="border-bottom border-4 border-light pb-4"></div>
-  <div class="row">
-    <h2 class="fw-bold">Artikelbeschreinung</h2>
-  </div>
-</div>
+<h5 class="fw-blod mb-4">Details</h5>
+<table class="table">
+  <tbody>
+    <tr *ngIf="item.bildschirmgrosse">
+      <td class="fw-bold">Bildschirmdiagonale in Zoll</td>
+      <td>
+        {{item.bildschirmgrosse}}
+      </td>
+    </tr>
+    <tr *ngIf="item.aufloesung"
+      ><td class="fw-bold">Auflösungsstandard</td>
+      <td>{{item.aufloesung}}</td>
+    </tr>
+    <tr *ngIf="item.prozessor.hersteller">
+      <td class="fw-bold">Prozessorhersteller</td>
+      <td>{{ item.prozessor.hersteller }}</td>
+    </tr>
+    <tr *ngIf="item.prozessor.name">
+      <td class="fw-bold">Prozessorname</td>
+      <td>{{ item.prozessor.name }}</td>
+    </tr>
+    <tr *ngIf="item.prozessor.serie">
+      <td class="fw-bold">Prozessorserie</td>
+      <td>{{ item.prozessor.serie }}</td>
+    </tr>
+    <tr *ngIf="item.prozessor.bauart">
+      <td class="fw-bold">Prozessorbauart</td>
+      <td>{{ item.prozessor.bauart }}</td>
+    </tr>
+    <tr *ngIf="item.prozessor.architektur">
+      <td class="fw-bold">Prozessorarchitektur</td>
+      <td>{{ item.prozessor.architektur }}</td>
+    </tr>
+    <tr *ngIf="item.gewicht">
+      <td class="fw-bold">Gewicht</td>
+      <td>{{ item.gewicht }}</td>
+    </tr>
+  </tbody>
+</table>
