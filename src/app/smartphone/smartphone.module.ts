@@ -4,6 +4,7 @@ import { CoreModule } from '../core/core.module';
 import { UiModule } from '../ui/ui.moudle';
 import { SmartphoneDetailsComponent } from './smartphone-details/smartphone-details.component';
 import { SmartphoneItemComponent } from './smartphone-item/smartphone-item.component';
+import { SmartphoneKommentareComponent } from './smartphone-kommentare/smartphone-kommentare.component';
 import { SmartphoneListComponent } from './smartphone-list/smartphone-list.component';
 import { SmartphonRoutingModule } from './smartphone-routing.module';
 
@@ -12,6 +13,7 @@ import { SmartphonRoutingModule } from './smartphone-routing.module';
   declarations: [
     SmartphoneDetailsComponent,
     SmartphoneItemComponent,
+    SmartphoneKommentareComponent,
     SmartphoneListComponent,
   ],
 })

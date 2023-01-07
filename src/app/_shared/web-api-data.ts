@@ -1,4 +1,5 @@
 import { PreisType } from './enums/preis-type.enum';
+import { Rank } from './enums/rank.enum';
 import { Hersteller } from './interfaces/hersteller.interface';
 import { PreisKategory } from './interfaces/preis-kategory.interface';
 import { Prozessor } from './interfaces/prozessor.interface';
@@ -96,6 +97,56 @@ export class WebApiData {
       ],
       preisKategory: WebApiData.preisKategorien[2],
       hersteller: WebApiData.hersteller[1],
+      kommentare: [
+        {
+          id: '1',
+          smartphoneId: '1',
+          nameAnzeige: 'Sonja T',
+          titel: 'Absolute empfehlenswert!',
+          text: `Lorem ipsum dolor sit amet, consetetur sadipscing elitr,
+          sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat`,
+          erfassungAm: new Date(2022, 9, 21),
+          bewertung: Rank.Fuenf,
+          antowrten: [
+            {
+              kommentarId: '1',
+              nameAnzeige: 'Sven',
+              text: `Lorem ipsum dolor sit amet, consetetur sadipscing elitr,
+              sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat`,
+              erfassungAm: new Date(2022, 9, 22),
+            },
+            {
+              kommentarId: '1',
+              nameAnzeige: 'Sam',
+              text: `Lorem ipsum dolor sit amet, consetetur sadipscing elitr,
+              sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat`,
+              erfassungAm: new Date(2022, 9, 22),
+            },
+          ],
+        },
+        {
+          id: '2',
+          smartphoneId: '1',
+          nameAnzeige: 'Peter',
+          titel: 'Unzufrieden',
+          text: `Lorem ipsum dolor sit amet, consetetur sadipscing elitr,
+          sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat`,
+          erfassungAm: new Date(2022, 8, 12),
+          bewertung: Rank.Eins,
+          antowrten: [],
+        },
+        {
+          id: '3',
+          smartphoneId: '1',
+          nameAnzeige: 'Sam',
+          titel: 'Nicht schlecht',
+          text: `Lorem ipsum dolor sit amet, consetetur sadipscing elitr,
+          sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat`,
+          erfassungAm: new Date(2022, 4, 25),
+          bewertung: Rank.Drei,
+          antowrten: [],
+        },
+      ],
     },
     {
       id: '2',
@@ -115,6 +166,41 @@ export class WebApiData {
       ],
       preisKategory: WebApiData.preisKategorien[2],
       hersteller: WebApiData.hersteller[1],
+      kommentare: [
+        {
+          id: '4',
+          smartphoneId: '2',
+          nameAnzeige: 'Sonja T',
+          titel: 'Absolute empfehlenswert!',
+          text: `Lorem ipsum dolor sit amet, consetetur sadipscing elitr,
+          sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat`,
+          erfassungAm: new Date(2022, 9, 21),
+          bewertung: Rank.Fuenf,
+          antowrten: [],
+        },
+        {
+          id: '5',
+          smartphoneId: '2',
+          nameAnzeige: 'Peter',
+          titel: 'Unzufrieden',
+          text: `Lorem ipsum dolor sit amet, consetetur sadipscing elitr,
+          sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat`,
+          erfassungAm: new Date(2022, 8, 12),
+          bewertung: Rank.Eins,
+          antowrten: [],
+        },
+        {
+          id: '6',
+          smartphoneId: '2',
+          nameAnzeige: 'Sam',
+          titel: 'Nicht schlecht',
+          text: `Lorem ipsum dolor sit amet, consetetur sadipscing elitr,
+          sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat`,
+          erfassungAm: new Date(2022, 4, 25),
+          bewertung: Rank.Drei,
+          antowrten: [],
+        },
+      ],
     },
     {
       id: '3',
@@ -134,6 +220,7 @@ export class WebApiData {
       ],
       preisKategory: WebApiData.preisKategorien[2],
       hersteller: WebApiData.hersteller[1],
+      kommentare: [],
     },
     {
       id: '4',
@@ -153,6 +240,7 @@ export class WebApiData {
       ],
       preisKategory: WebApiData.preisKategorien[0],
       hersteller: WebApiData.hersteller[1],
+      kommentare: [],
     },
   ];
 }

@@ -1,0 +1,35 @@
+<div class="bg-light border border-1 rounded p-3 mb-3">
+  <a class="d-block fs-7 link-custom">{{ kommentar.nameAnzeige }}</a>
+  <div class="fs-4 stars" style="--rating: {{ kommentar.bewertung }};">
+    <span class="fw-bold fs-6 ps-1"> {{ kommentar.titel }} </span>
+    <span class="d-block text-muted fs-6"
+      >am {{ kommentar.erfassungAm | date: 'dd. MMMM yyyy' }}</span
+    >
+    <span class="fs-6">{{ kommentar.text }}</span>
+
+    <ng-container *ngIf="kommentar.antowrten">
+      <div *ngFor="let antwort of kommentar.antowrten" class="my-4 ms-4">
+        <a class="d-block fs-7 link-custom">{{ antwort.nameAnzeige }}</a>
+        <span class="d-block text-muted fs-6"
+          >am {{ antwort.erfassungAm | date: 'dd. MMMM yyyy' }}</span
+        >
+        <span class="fs-6">{{ antwort.text }}</span>
+      </div>
+    </ng-container>
+    <a
+      class="d-block fs-8 my-2 link-secondary"
+      type="button"
+      (click)="showInputField = true"
+      >Antworten</a
+    >
+    <input
+      *ngIf="showInputField"
+      type="text"
+      class="form-control"
+      placeholder="Kommentieren ..."
+      (keyup.enter)="antworten($event)"
+      (keyup.esc)="showInputField = false"
+      autofocus
+    />
+  </div>
+</div>

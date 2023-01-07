@@ -1,0 +1,13 @@
+<div class="row border-top border-5 border-light pt-4">
+  <div class="col-lg-7 col-md-12">
+    <h5 class="fw-blod mb-4">Kommentare</h5>
+    <ng-container *ngIf="kommentare.length">
+      <div *ngFor="let kommentar of kommentare">
+        <ka-kommentar [kommentar]="kommentar"></ka-kommentar>
+      </div>
+    </ng-container>
+    <div *ngIf="!kommentare.length" class="alert alert-info">
+      Es wurde noch keine Kommentare dazu erfasst.
+    </div>
+  </div>
+</div>

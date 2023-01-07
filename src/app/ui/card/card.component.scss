@@ -1,6 +1,6 @@
 $img-height-width: 14rem;
 $start-color: lightgray;
-$star-background: #fc0;
+$star-background: #ffa41c;
 
 img {
   max-width: $img-height-width;
@@ -8,23 +8,6 @@ img {
   margin: 0 auto;
 }
 
-.stars {
-  --percent: calc(var(--rating) / 5 * 100%);
-
-  display: inline-block;
-  font-size: var(--star-size);
-  font-family: Times;
-  line-height: 1;
-
-  &::before {
-    content: '★★★★★';
-    background: linear-gradient(
-      90deg,
-      $star-background var(--percent),
-      $start-color var(--percent)
-    );
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
+p:hover {
+  color: #c7511f;
 }

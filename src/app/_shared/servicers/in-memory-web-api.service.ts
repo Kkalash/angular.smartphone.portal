@@ -8,6 +8,7 @@ import {
 } from 'angular-in-memory-web-api';
 import { Observable } from 'rxjs';
 import { ApiPath } from '../enums/api-path.enum';
+import { KommentarAntwort } from '../models/kommentar-antwort.model';
 import { WebApiData } from '../web-api-data';
 
 @Injectable({
@@ -38,6 +39,8 @@ export class InMemoryWebApiService implements InMemoryDbService {
     const apiPathLevels = this.getApiPathLevels(reqInfo);
 
     switch (apiPathLevels[0]) {
+      case ApiPath.KommentarAntwort:
+        return this.postKommentarAntwort(reqInfo);
       default:
         return undefined;
     }
@@ -103,6 +106,33 @@ export class InMemoryWebApiService implements InMemoryDbService {
       const id = urlSegments[urlSegments.length - 1];
 
       const data = WebApiData.smartphons.find((s) => s.id === id);
+
+      const options: ResponseOptions = {
+        body: JSON.parse(JSON.stringify(data)),
+        status: STATUS.OK,
+      };
+
+      return this.finishOptions(options, reqInfo);
+    });
+  }
+
+  // POST
+  private postKommentarAntwort(reqInfo: RequestInfo): Observable<any> {
+    return reqInfo.utils.createResponse$(() => {
+      console.log(
+        `HTTP GET override: "${ApiPath.KommentarAntwort}" (URL: ${reqInfo.url})`,
+      );
+
+      const data = reqInfo.utils.getJsonBody(reqInfo.req) as KommentarAntwort;
+
+      WebApiData.smartphons.forEach((smartphone) => {
+        const kommentar = smartphone.kommentare.find(
+          (k) => k.id === data.kommentarId,
+        );
+        if (kommentar) {
+          kommentar.antowrten.push(data);
+        }
+      });
 
       const options: ResponseOptions = {
         body: JSON.parse(JSON.stringify(data)),

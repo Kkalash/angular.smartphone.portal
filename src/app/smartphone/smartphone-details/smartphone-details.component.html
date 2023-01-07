@@ -1,39 +1,72 @@
-<h5 class="fw-blod mb-4">Details</h5>
-<table class="table">
-  <tbody>
-    <tr *ngIf="item.bildschirmgrosse">
-      <td class="fw-bold">Bildschirmdiagonale in Zoll</td>
-      <td>
-        {{item.bildschirmgrosse}}
-      </td>
-    </tr>
-    <tr *ngIf="item.aufloesung"
-      ><td class="fw-bold">Auflösungsstandard</td>
-      <td>{{item.aufloesung}}</td>
-    </tr>
-    <tr *ngIf="item.prozessor.hersteller">
-      <td class="fw-bold">Prozessorhersteller</td>
-      <td>{{ item.prozessor.hersteller }}</td>
-    </tr>
-    <tr *ngIf="item.prozessor.name">
-      <td class="fw-bold">Prozessorname</td>
-      <td>{{ item.prozessor.name }}</td>
-    </tr>
-    <tr *ngIf="item.prozessor.serie">
-      <td class="fw-bold">Prozessorserie</td>
-      <td>{{ item.prozessor.serie }}</td>
-    </tr>
-    <tr *ngIf="item.prozessor.bauart">
-      <td class="fw-bold">Prozessorbauart</td>
-      <td>{{ item.prozessor.bauart }}</td>
-    </tr>
-    <tr *ngIf="item.prozessor.architektur">
-      <td class="fw-bold">Prozessorarchitektur</td>
-      <td>{{ item.prozessor.architektur }}</td>
-    </tr>
-    <tr *ngIf="item.gewicht">
-      <td class="fw-bold">Gewicht</td>
-      <td>{{ item.gewicht }}</td>
-    </tr>
-  </tbody>
-</table>
+<div class="row border-top border-5 border-light pt-4">
+  <div class="col-md-7 col-sm-12">
+    <div class="d-flex justify-content-between">
+      <h5 class="fw-bold">Artikelbeschreinung</h5>
+      <h3
+        class="fw-bold text-uppercase hersteller-name"
+        >{{ item.hersteller.name }}</h3
+      >
+    </div>
+    <p class="text-muted">{{ item.beschreibung }}</p>
+
+    <div class="border-top border-5 border-light pt-4">
+      <h5 class="fw-blod mb-4">Details</h5>
+      <table class="table">
+        <tbody>
+          <tr *ngIf="item.bildschirmgrosse">
+            <td class="fw-bold">Bildschirmdiagonale in Zoll</td>
+            <td>
+              {{item.bildschirmgrosse}}
+            </td>
+          </tr>
+          <tr *ngIf="item.aufloesung"
+            ><td class="fw-bold">Auflösungsstandard</td>
+            <td>{{item.aufloesung}}</td>
+          </tr>
+          <tr *ngIf="item.prozessor.hersteller">
+            <td class="fw-bold">Prozessorhersteller</td>
+            <td>{{ item.prozessor.hersteller }}</td>
+          </tr>
+          <tr *ngIf="item.prozessor.name">
+            <td class="fw-bold">Prozessorname</td>
+            <td>{{ item.prozessor.name }}</td>
+          </tr>
+          <tr *ngIf="item.prozessor.serie">
+            <td class="fw-bold">Prozessorserie</td>
+            <td>{{ item.prozessor.serie }}</td>
+          </tr>
+          <tr *ngIf="item.prozessor.bauart">
+            <td class="fw-bold">Prozessorbauart</td>
+            <td>{{ item.prozessor.bauart }}</td>
+          </tr>
+          <tr *ngIf="item.prozessor.architektur">
+            <td class="fw-bold">Prozessorarchitektur</td>
+            <td>{{ item.prozessor.architektur }}</td>
+          </tr>
+          <tr *ngIf="item.gewicht">
+            <td class="fw-bold">Gewicht</td>
+            <td>{{ item.gewicht }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div *ngIf="item.hersteller" class="col-md-5 col-sm-12">
+    <h5>Herrstellerkontakt</h5>
+    <ul class="fa-ul">
+      <li *ngIf="item.hersteller.telefonnummer"
+        ><a [href]="item.hersteller.telefonnummer | telNr" class="link-custom"
+          ><span class="fa-li"><i class="fa-solid fa-phone-flip"></i></span
+          >{{ item.hersteller.telefonnummer }}</a
+        ></li
+      >
+      <li *ngIf="item.hersteller.email"
+        ><a [href]="item.hersteller.email | mailto" class="link-custom"
+          ><span class="fa-li"><i class="fa-solid fa-envelope"></i></span
+          >{{ item.hersteller.email }}</a
+        ></li
+      >
+    </ul>
+  </div>
+</div>
