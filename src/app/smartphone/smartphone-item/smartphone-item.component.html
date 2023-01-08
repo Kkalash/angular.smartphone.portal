@@ -30,6 +30,9 @@
   <ka-smartphone-details [item]="item"></ka-smartphone-details>
 
   <ka-smartphone-kommentare
+    [smartphoneId]="item.id"
     [kommentare]="item.kommentare"
+    [ranking]="item.ranking"
+    [bewerteranzahl]="item.bewerteranzahl"
   ></ka-smartphone-kommentare>
 </div>
