@@ -1,0 +1,11 @@
+$img-height-width: 5rem;
+
+img {
+  max-width: $img-height-width;
+  max-height: $img-height-width;
+  margin: 0 auto;
+}
+
+.star-color {
+  color: #ffa41c;
+}

@@ -1,5 +1,6 @@
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { AppRoutingModule } from './app-routing.module';
@@ -14,6 +15,7 @@ import { InMemoryWebApiService } from './_shared/servicers/in-memory-web-api.ser
   imports: [
     AppRoutingModule,
     BrowserModule,
+    FormsModule,
     HttpClientModule,
     CoreModule,
     HttpClientInMemoryWebApiModule.forRoot(InMemoryWebApiService, {
