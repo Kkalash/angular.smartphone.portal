@@ -1,4 +1,5 @@
 import { Prozessor } from '../interfaces/prozessor.interface';
+import { Kommentar } from './kommentar.model';
 import { SmartphoneCard } from './smartphone-card.model';
 
 export class SmartphoneDetails extends SmartphoneCard {
@@ -6,6 +7,7 @@ export class SmartphoneDetails extends SmartphoneCard {
   public gewicht: string;
   public beschreibung: string;
   public prozessor: Prozessor;
+  public kommentare: Kommentar[];
 
   constructor(item: SmartphoneDetails) {
     super({
@@ -22,5 +24,6 @@ export class SmartphoneDetails extends SmartphoneCard {
     this.gewicht = item.gewicht;
     this.beschreibung = item.beschreibung;
     this.prozessor = item.prozessor;
+    this.kommentare = item.kommentare.map((k) => new Kommentar(k));
   }
 }

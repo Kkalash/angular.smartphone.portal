@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Inject, Injectable } from '@angular/core';
-import { map, Observable } from 'rxjs';
+import { find, map, Observable, switchMap } from 'rxjs';
 import {
   HttpConfiguration,
   HTTP_CONFIGURATION,
@@ -24,5 +24,12 @@ export class SmartphoneListService extends HttpService {
     return this.http
       .get<SmartphoneCard[]>(`${this.fullUrl}`)
       .pipe(map((card) => card));
+  }
+
+  public getById(id: string): Observable<SmartphoneCard> {
+    return this.getAll().pipe(
+      switchMap((cards) => cards),
+      find((card) => card.id === id),
+    );
   }
 }

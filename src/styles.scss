@@ -1,4 +1,3 @@
-/* You can add global styles to this file, and also import other style files */
 @import 'node_modules/bootstrap/scss/bootstrap';
 
 @import './bootstrap-ultilities';
@@ -19,7 +18,40 @@ body {
     text-decoration: underline;
   }
 
+  .form-control:focus {
+    box-shadow: none;
+  }
+
   a {
     text-decoration: none;
+  }
+
+  .link-custom {
+    color: #007185;
+
+    &:hover {
+      color: #c7511f;
+    }
+  }
+
+  .stars {
+    --percent: calc(var(--rating) / 5 * 100%);
+
+    display: inline-block;
+    font-size: var(--star-size);
+    font-family: Times;
+    line-height: 1;
+
+    &::before {
+      content: '★★★★★';
+      background: linear-gradient(
+        90deg,
+        #ffa41c var(--percent),
+        lightgray var(--percent)
+      );
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
   }
 }

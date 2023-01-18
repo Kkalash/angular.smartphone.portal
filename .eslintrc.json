@@ -210,7 +210,7 @@
             ]
           }
         ],
-        "no-debugger": "error",
+        "no-debugger": "warn",
         "no-empty": "off",
         "no-empty-function": "off",
         "no-eval": "error",
