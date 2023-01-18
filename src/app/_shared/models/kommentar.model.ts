@@ -1,4 +1,3 @@
-import { Rank } from '../enums/rank.enum';
 import { KommentarAntwort } from './kommentar-antwort.model';
 
 export class Kommentar {
@@ -8,7 +7,7 @@ export class Kommentar {
   public titel: string;
   public text: string;
   public erfassungAm: Date;
-  public bewertung: Rank;
+  public bewertung: number;
   public antowrten: KommentarAntwort[];
 
   constructor(item: Kommentar) {

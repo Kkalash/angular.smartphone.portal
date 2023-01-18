@@ -17,6 +17,9 @@ export class SmartphoneKommentareComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {
-    this.kommentare.sort((k1, k2) => +k1.erfassungAm - +k2.erfassungAm);
+    this.kommentare.sort(
+      (k1: Kommentar, k2: Kommentar) =>
+        new Date(k2.erfassungAm).getTime() - new Date(k1.erfassungAm).getTime(),
+    );
   }
 }

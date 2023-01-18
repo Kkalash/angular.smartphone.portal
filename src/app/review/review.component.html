@@ -9,22 +9,12 @@
       </div>
       <div class="border-1 border-bottom pb-4">
         <p class="fw-bold fs-5 my-4">Gesamtbewertung</p>
-        <a>
-          <i class="fa-regular fa-star fa-2xl star-color"></i>
-        </a>
-        <a>
-          <i class="fa-regular fa-star fa-2xl star-color"></i>
-        </a>
-        <a>
-          <i class="fa-regular fa-star fa-2xl star-color"></i>
-        </a>
-        <a>
-          <i class="fa-regular fa-star fa-2xl star-color"></i>
-        </a>
-        <a>
-          <i class="fa-regular fa-star fa-2xl star-color"></i>
-        </a>
-        <!-- <i class="fa-solid fa-star fa-2xl star-color"></i> -->
+        <i
+          *ngFor="let star of stars"
+          class="fa-star fa-2xl star-color cursor-pointer"
+          [ngClass]="bewertung >= star ? 'fa-solid' : 'fa-regular'"
+          (click)="bewertung = star"
+        ></i>
       </div>
       <div class="border-1 border-bottom pb-4">
         <p class="fw-bold fs-5 my-3">Titel hinzufügen</p>

@@ -1,5 +1,4 @@
 import { PreisType } from './enums/preis-type.enum';
-import { Rank } from './enums/rank.enum';
 import { Hersteller } from './interfaces/hersteller.interface';
 import { PreisKategory } from './interfaces/preis-kategory.interface';
 import { Prozessor } from './interfaces/prozessor.interface';
@@ -106,7 +105,7 @@ export class WebApiData {
           text: `Lorem ipsum dolor sit amet, consetetur sadipscing elitr,
           sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat`,
           erfassungAm: new Date(2022, 9, 21),
-          bewertung: Rank.Fuenf,
+          bewertung: 5,
           antowrten: [
             {
               kommentarId: '1',
@@ -132,7 +131,7 @@ export class WebApiData {
           text: `Lorem ipsum dolor sit amet, consetetur sadipscing elitr,
           sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat`,
           erfassungAm: new Date(2022, 8, 12),
-          bewertung: Rank.Eins,
+          bewertung: 1,
           antowrten: [],
         },
         {
@@ -143,7 +142,7 @@ export class WebApiData {
           text: `Lorem ipsum dolor sit amet, consetetur sadipscing elitr,
           sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat`,
           erfassungAm: new Date(2022, 4, 25),
-          bewertung: Rank.Drei,
+          bewertung: 3,
           antowrten: [],
         },
       ],
@@ -175,7 +174,7 @@ export class WebApiData {
           text: `Lorem ipsum dolor sit amet, consetetur sadipscing elitr,
           sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat`,
           erfassungAm: new Date(2022, 9, 21),
-          bewertung: Rank.Fuenf,
+          bewertung: 5,
           antowrten: [],
         },
         {
@@ -186,7 +185,7 @@ export class WebApiData {
           text: `Lorem ipsum dolor sit amet, consetetur sadipscing elitr,
           sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat`,
           erfassungAm: new Date(2022, 8, 12),
-          bewertung: Rank.Eins,
+          bewertung: 1,
           antowrten: [],
         },
         {
@@ -197,7 +196,7 @@ export class WebApiData {
           text: `Lorem ipsum dolor sit amet, consetetur sadipscing elitr,
           sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat`,
           erfassungAm: new Date(2022, 4, 25),
-          bewertung: Rank.Drei,
+          bewertung: 3,
           antowrten: [],
         },
       ],

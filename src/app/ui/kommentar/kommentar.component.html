@@ -24,14 +24,14 @@
         >Antworten</a
       >
     </div>
-    <input
-      *ngIf="showInputField"
-      type="text"
-      class="form-control"
-      placeholder="Kommentieren ..."
-      (keyup.enter)="antworten($event)"
-      (keyup.esc)="showInputField = false"
-      autofocus
-    />
   </div>
+  <input
+    *ngIf="showInputField"
+    type="text"
+    class="form-control"
+    placeholder="Kommentieren ..."
+    (keyup.enter)="antworten($event)"
+    (keyup.esc)="showInputField = false"
+    autofocus
+  />
 </div>

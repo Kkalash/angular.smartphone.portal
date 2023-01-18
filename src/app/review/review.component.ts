@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
+import { AppRoute } from '../_shared/enums/app-route.enum';
 import { RouteParam } from '../_shared/enums/route-param.enum';
 import { Kommentar } from '../_shared/models/kommentar.model';
 import { SmartphoneCard } from '../_shared/models/smartphone-card.model';
+import { KommentarService } from '../_shared/servicers/kommentar.service';
 import { SmartphoneListService } from '../_shared/servicers/smartphon-list.service';
-import { SmartphoneKommentareService } from '../_shared/servicers/smartphone-kommentare.service';
 
 @Component({
   selector: 'ka-review',
@@ -14,16 +15,21 @@ import { SmartphoneKommentareService } from '../_shared/servicers/smartphone-kom
 })
 export class ReviewComponent implements OnInit {
   private readonly subscription: Subscription = new Subscription();
+  private readonly AppRoute = `/${AppRoute.SmartphoneList}`;
 
   item: SmartphoneCard;
 
-  titel: string;
-  textarea: string;
+  titel = '';
+  textarea = '';
+
+  stars = [1, 2, 3, 4, 5];
+  bewertung = 0;
 
   constructor(
-    private kommentareService: SmartphoneKommentareService,
+    private kommentarService: KommentarService,
     private smartphoneListService: SmartphoneListService,
     private route: ActivatedRoute,
+    private router: Router,
   ) {}
 
   ngOnInit(): void {
@@ -38,7 +44,7 @@ export class ReviewComponent implements OnInit {
   }
 
   absenden(): void {
-    if (this.titel.length && this.textarea.length) {
+    if (this.titel.length && this.textarea.length && this.bewertung !== 0) {
       const kommentar: Kommentar = {
         id: '',
         smartphoneId: this.item.id,
@@ -50,11 +56,14 @@ export class ReviewComponent implements OnInit {
           new Date().getMonth(),
           new Date().getDate(),
         ),
-        bewertung: null,
+        bewertung: this.bewertung,
         antowrten: [],
       };
 
-      this.kommentareService.kommentarAbsenden(kommentar).subscribe();
+      this.kommentarService.kommentarAbsenden(kommentar).subscribe({
+        next: () =>
+          this.router.navigate([this.AppRoute, kommentar.smartphoneId]),
+      });
     }
   }
 }

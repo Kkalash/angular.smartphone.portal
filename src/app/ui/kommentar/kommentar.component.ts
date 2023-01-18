@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { KommentarAntwort } from '../../_shared/models/kommentar-antwort.model';
 import { Kommentar } from '../../_shared/models/kommentar.model';
-import { SmartphoneKommentareService } from '../../_shared/servicers/smartphone-kommentare.service';
+import { AntwortService } from '../../_shared/servicers/antwort.service';
 
 @Component({
   selector: 'ka-kommentar',
@@ -12,7 +12,7 @@ export class KommentarComponent {
 
   showInputField = false;
 
-  constructor(private kommentarService: SmartphoneKommentareService) {}
+  constructor(private kommentarService: AntwortService) {}
 
   antworten($event) {
     if ($event.target.value.length) {
