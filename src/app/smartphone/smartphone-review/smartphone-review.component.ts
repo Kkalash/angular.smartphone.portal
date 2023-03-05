@@ -1,19 +1,19 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
-import { AppRoute } from '../_shared/enums/app-route.enum';
-import { RouteParam } from '../_shared/enums/route-param.enum';
-import { Kommentar } from '../_shared/models/kommentar.model';
-import { SmartphoneCard } from '../_shared/models/smartphone-card.model';
-import { KommentarService } from '../_shared/servicers/kommentar.service';
-import { SmartphoneListService } from '../_shared/servicers/smartphon-list.service';
+import { AppRoute } from '../../_shared/enums/app-route.enum';
+import { RouteParam } from '../../_shared/enums/route-param.enum';
+import { Kommentar } from '../../_shared/models/kommentar.model';
+import { SmartphoneCard } from '../../_shared/models/smartphone-card.model';
+import { KommentarService } from '../../_shared/servicers/kommentar.service';
+import { SmartphoneListService } from '../../_shared/servicers/smartphon-list.service';
 
 @Component({
-  selector: 'ka-review',
-  templateUrl: './review.component.html',
-  styleUrls: ['./review.component.scss'],
+  selector: 'ka-smartphone-review',
+  templateUrl: './smartphone-review.component.html',
+  styleUrls: ['./smartphone-review.component.scss'],
 })
-export class ReviewComponent implements OnInit {
+export class SmartphoneReviewComponent implements OnInit {
   private readonly subscription: Subscription = new Subscription();
   private readonly AppRoute = `/${AppRoute.SmartphoneList}`;
 

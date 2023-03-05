@@ -12,7 +12,7 @@ export class SmartphoneKommentareComponent implements OnInit {
   @Input() ranking: number;
   @Input() bewerteranzahl: number;
 
-  appRoute = `/${AppRoute.Review}`;
+  appRoute = `/${AppRoute.SmartphoneList}/${AppRoute.Review}`;
 
   constructor() {}
 

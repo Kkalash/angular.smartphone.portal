@@ -1,0 +1,60 @@
+<div class="d-flex flex-column justify-content-center">
+  <div class="text-center mb-4">
+    <h3>Anmelden</h3>
+    <div>
+      Hast du noch kein Konto?<a class="redirect" routerLink="/register-user">
+        Registrieren</a
+      >
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-5 col-sm-12">
+      <form ngNativeValidate #loginForm>
+        <div class="mb-2">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Benutzername"
+            #userName
+            required
+          />
+        </div>
+        <div class="mb-2">
+          <input
+            type="password"
+            class="form-control"
+            placeholder="Passwort"
+            #userPassword
+            required
+          />
+        </div>
+        <a
+          class="d-flex justify-content-end text-muted fs-8"
+          routerLink="/forgot-password"
+        >
+          Passwort oder Email vergessen?
+        </a>
+        <button
+          class="btn btn-outline-primary"
+          type="submit"
+          (click)="loginForm.checkValidity() ? authService.signIn(userName.value, userPassword.value) : null"
+          >Anmelden</button
+        >
+      </form>
+    </div>
+    <div class="col-md-2 col-sm-0">
+      <div class="vertical"></div>
+    </div>
+    <div class="col-md-5 col-sm-12">
+      <div class="google-btn cursor-pointer" (click)="authService.googleAuth()">
+        <div class="google-icon-wrapper">
+          <img
+            class="google-icon"
+            src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"
+          />
+        </div>
+        <p class="btn-text">Über Google anmelden</p>
+      </div>
+    </div>
+  </div>
+</div>

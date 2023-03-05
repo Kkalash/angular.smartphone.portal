@@ -126,7 +126,7 @@
         "@typescript-eslint/prefer-function-type": "error",
         "@typescript-eslint/prefer-namespace-keyword": "error",
         "@typescript-eslint/quotes": [
-          "error",
+          "warn",
           "single",
           {
             "avoidEscape": true
@@ -231,7 +231,7 @@
         "one-var": ["error", "never"],
         "prefer-const": "error",
         "quote-props": ["error", "consistent-as-needed"],
-        "quotes": ["error", "single", { "avoidEscape": true }],
+        "quotes": ["warn", "single", { "avoidEscape": true }],
         "radix": ["error", "as-needed"],
         "semi": "off",
         "space-before-function-paren": [
