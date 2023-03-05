@@ -2,7 +2,10 @@
   <div class="text-center mb-4">
     <h3>Anmelden</h3>
     <div>
-      Hast du noch kein Konto?<a class="redirect" routerLink="/register-user">
+      Hast du noch kein Konto?<a
+        class="link-custom"
+        [routerLink]="[appRouteSignUp]"
+      >
         Registrieren</a
       >
     </div>
@@ -30,7 +33,7 @@
         </div>
         <a
           class="d-flex justify-content-end text-muted fs-8"
-          routerLink="/forgot-password"
+          [routerLink]="[appRouteForotPassword]"
         >
           Passwort oder Email vergessen?
         </a>
@@ -43,7 +46,7 @@
       </form>
     </div>
     <div class="col-md-2 col-sm-0">
-      <div class="vertical"></div>
+      <div class="vertical-line"></div>
     </div>
     <div class="col-md-5 col-sm-12">
       <div class="google-btn cursor-pointer" (click)="authService.googleAuth()">

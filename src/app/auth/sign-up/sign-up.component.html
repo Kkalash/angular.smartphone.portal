@@ -1,53 +1,58 @@
-<div class="displayTable">
-  <div class="displayTableCell">
-    <div class="authBlock">
-      <h3>Registrieren</h3>
-      <div class="formGroup">
-        <input
-          type="email"
-          class="formControl"
-          placeholder="Email Address"
-          #userEmail
-          required
-        />
-      </div>
-      <div class="formGroup">
-        <input
-          type="password"
-          class="formControl"
-          placeholder="Password"
-          #userPwd
-          required
-        />
-      </div>
-      <div class="formGroup">
-        <input
-          type="button"
-          class="btn btnPrimary"
-          value="Sign Up"
-          (click)="authService.signUp(userEmail.value, userPwd.value)"
-        />
-      </div>
-      <div class="formGroup">
-        <span class="or"><span class="orInner">Or</span></span>
-      </div>
-      <!-- Continue with Google -->
-      <div class="formGroup">
-        <button
-          type="button"
-          class="btn googleBtn"
-          (click)="authService.googleAuth()"
-        >
-          <i class="fab fa-google-plus-g"></i>
-          Continue with Google
-        </button>
-      </div>
-    </div>
-    <div class="redirectToLogin">
-      <span
-        >Hast du schon ein Konto?
-        <span class="redirect" routerLink="/sign-in">Log In</span></span
+<div class="d-flex flex-column justify-content-center">
+  <div class="text-center mb-4">
+    <h3>Registrieren</h3>
+    <div>
+      Hast du schon ein Konto?<a
+        class="link-custom"
+        [routerLink]="[appRouteSignIn]"
       >
+        Anmelden</a
+      >
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-5 col-sm-12">
+      <form ngNativeValidate #signUpForm>
+        <div class="mb-2">
+          <input
+            type="email"
+            class="form-control"
+            placeholder="Email Address"
+            #userEmail
+            required
+          />
+        </div>
+        <div class="mb-2">
+          <input
+            type="password"
+            class="form-control"
+            placeholder="Password"
+            #userPwd
+            required
+          />
+        </div>
+        <button
+          class="btn btn-outline-primary"
+          type="submit"
+          (click)="signUpForm.checkValidity() ? authService.signUp(userEmail.value, userPwd.value) : null"
+          >Registrieren</button
+        >
+      </form>
+    </div>
+    <div class="col-md-2 col-sm-0">
+      <div class="vertical-line"></div>
+    </div>
+    <div class="col-md-5 col-sm-12">
+      <div class="google-btn cursor-pointer" (click)="authService.googleAuth()">
+        <div class="google-icon-wrapper">
+          <img
+            class="google-icon"
+            src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"
+          />
+        </div>
+        <p class="btn-text">Über Google anmelden</p>
+      </div>
     </div>
   </div>
 </div>
