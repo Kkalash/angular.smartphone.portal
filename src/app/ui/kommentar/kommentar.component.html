@@ -18,11 +18,20 @@
     </ng-container>
     <div class="mt-3">
       <a
+        *ngIf="authService.isLoggedIn else sginIn"
         class="fs-8 my-2 link-custom"
         type="button"
         (click)="showInputField = true"
         >Antworten</a
       >
+      <ng-template #sginIn>
+        <a
+          class="fs-8 my-2 link-custom"
+          type="button"
+          [routerLink]="[AppRouteSignIn]"
+          >Antworten</a
+        >
+      </ng-template>
     </div>
   </div>
   <input

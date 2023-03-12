@@ -1,0 +1,26 @@
+.navbar-toggler {
+  > .navbar-toggler-icon {
+    background-size: 130%;
+  }
+
+  &:focus {
+    box-shadow: none;
+  }
+
+  &:focus-visible {
+    outline: 1px auto Highlight !important;
+    outline: 1px auto -webkit-focus-ring-color !important;
+  }
+}
+
+.navbar-collapse {
+  text-align: center;
+
+  &.show {
+    padding-top: 1rem;
+  }
+}
+
+.nav-link.active {
+  font-weight: 700;
+}

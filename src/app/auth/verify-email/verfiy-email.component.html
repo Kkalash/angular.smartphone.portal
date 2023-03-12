@@ -1,0 +1,29 @@
+<div class="d-flex justify-content-center">
+  <div class="text-center mb-4">
+    <h3>Danke für die Registrierung</h3>
+    <p class="text-center" *ngIf="authService.userData as user"
+      >Wir haben eine Bestätigungs-E-Mail an gesendet
+      <strong>{{user.email}}</strong
+      >.</p
+    >
+    <p class="text-center">
+      Bitte überprüfe dein E-Mail und klick auf den Link, um dein E-Mail-Adresse
+      zu bestätigen.</p
+    >
+    <div class="formGroup">
+      <button
+        type="button"
+        class="btn btn-outline-primary"
+        (click)="authService.sendVerificationMail()"
+      >
+        <i class="fas fa-redo-alt"></i>
+
+        Bestätigungsmail erneut senden
+      </button>
+    </div>
+    <div>
+      zurück zur ?
+      <a class="link-custom" [routerLink]="[appRouteSignIn]">Anmeldung</a>
+    </div>
+  </div>
+</div>
