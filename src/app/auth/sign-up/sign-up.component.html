@@ -11,7 +11,7 @@
     </div>
   </div>
 
-  <div class="row">
+  <div class="row medium">
     <div class="col-md-5 col-sm-12">
       <form ngNativeValidate #signUpForm>
         <div class="mb-2">
@@ -27,13 +27,13 @@
           <input
             type="password"
             class="form-control"
-            placeholder="Password"
+            placeholder="Passwort"
             #userPwd
             required
           />
         </div>
         <button
-          class="btn btn-outline-primary"
+          class="btn btn-outline-primary medium-btn"
           type="submit"
           (click)="signUpForm.checkValidity() ? authService.signUp(userEmail.value, userPwd.value) : null"
           >Registrieren</button
@@ -44,14 +44,29 @@
       <div class="vertical-line"></div>
     </div>
     <div class="col-md-5 col-sm-12">
-      <div class="google-btn cursor-pointer" (click)="authService.googleAuth()">
-        <div class="google-icon-wrapper">
+      <div
+        class="social-media-btn cursor-pointer mb-2"
+        (click)="authService.googleAuth()"
+      >
+        <div class="social-media-icon-wrapper">
           <img
-            class="google-icon"
+            class="social-media-icon"
             src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"
           />
         </div>
         <p class="btn-text">Über Google anmelden</p>
+      </div>
+      <div
+        class="social-media-btn cursor-pointer"
+        (click)="authService.facebookAuth()"
+      >
+        <div class="social-media-icon-wrapper">
+          <img
+            class="social-media-icon"
+            src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg"
+          />
+        </div>
+        <p class="btn-text">Über Facebook anmelden</p>
       </div>
     </div>
   </div>

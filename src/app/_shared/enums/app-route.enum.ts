@@ -5,4 +5,5 @@ export enum AppRoute {
   SignIn = 'sign-in',
   SignUp = 'sign-up',
   ForgotPassword = 'forgot-password',
+  VerfiyEmail = 'verfiy-email',
 }

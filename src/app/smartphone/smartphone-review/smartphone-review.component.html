@@ -1,43 +1,46 @@
 <ng-container *ngIf="item">
-  <div class="row">
-    <div class="col-lg-3 col-md-1 col-sm-0"></div>
-    <div class="col-lg-6 col-md-10 col-sm-12">
-      <div class="border-1 border-bottom pb-4">
-        <h4 class="fw-bold mb-4">Rezension erstellen</h4>
-        <img [src]="item.bilder[0]" />
-        <span class="fs-7 ps-4">{{ item.name }}</span>
+  <div class="h-100 overflow-auto">
+    <div class="d-flex flex-column h-100 align-items-center">
+      <div class="pb-4">
+        <div class="border-1 border-bottom pb-4">
+          <h4 class="fw-bold mb-4">Rezension erstellen</h4>
+          <img [src]="item.bilder[0]" />
+          <span class="fs-7 ps-4">{{ item.name }}</span>
+        </div>
+        <div class="border-1 border-bottom pb-4">
+          <p class="fw-bold fs-5 my-4">Gesamtbewertung</p>
+          <i
+            *ngFor="let star of stars"
+            class="fa-star fa-2xl star-color cursor-pointer"
+            [ngClass]="bewertung >= star ? 'fa-solid' : 'fa-regular'"
+            (click)="bewertung = star"
+          ></i>
+        </div>
+        <div class="border-1 border-bottom pb-4">
+          <p class="fw-bold fs-5 my-3">Titel hinzufügen</p>
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Was ist die wichtigste Information?"
+            [(ngModel)]="titel"
+          />
+        </div>
+        <div class="border-1 border-bottom pb-4 mb-3">
+          <p class="fw-bold fs-5 my-3"
+            >Füge eine schriftliche Rezension hinzu</p
+          >
+          <textarea
+            class="form-control"
+            placeholder="Was hat dir gefallen oder missfallen? wofür hast du das Produkt verwendet?"
+            rows="4"
+            [(ngModel)]="textarea"
+          ></textarea>
+        </div>
+        <button class="btn btn-warning float-end" (click)="absenden()"
+          >Absenden</button
+        >
       </div>
-      <div class="border-1 border-bottom pb-4">
-        <p class="fw-bold fs-5 my-4">Gesamtbewertung</p>
-        <i
-          *ngFor="let star of stars"
-          class="fa-star fa-2xl star-color cursor-pointer"
-          [ngClass]="bewertung >= star ? 'fa-solid' : 'fa-regular'"
-          (click)="bewertung = star"
-        ></i>
-      </div>
-      <div class="border-1 border-bottom pb-4">
-        <p class="fw-bold fs-5 my-3">Titel hinzufügen</p>
-        <input
-          type="text"
-          class="form-control"
-          placeholder="Was ist die wichtigste Information?"
-          [(ngModel)]="titel"
-        />
-      </div>
-      <div class="border-1 border-bottom pb-4 mb-3">
-        <p class="fw-bold fs-5 my-3">Füge eine schriftliche Rezension hinzu</p>
-        <textarea
-          class="form-control"
-          placeholder="Was hat dir gefallen oder missfallen? wofür hast du das Produkt verwendet?"
-          rows="4"
-          [(ngModel)]="textarea"
-        ></textarea>
-      </div>
-      <button class="btn btn-warning float-end" (click)="absenden()"
-        >Absenden</button
-      >
+      <div class="col-lg-3 col-md-1 col-sm-0"></div>
     </div>
-    <div class="col-lg-3 col-md-1 col-sm-0"></div>
   </div>
 </ng-container>

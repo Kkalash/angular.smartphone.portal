@@ -25,7 +25,17 @@
 
         <ul class="navbar-nav me-auto">
           <li class="nav-item">
-            <a class="nav-link" [routerLink]="[AppRoute]"> Anmelden </a>
+            <a
+              *ngIf="authService.isLoggedIn; else anmelden"
+              class="nav-link"
+              routerLink="/"
+              (click)="authService.signOut()"
+            >
+              Abmelden
+            </a>
+            <ng-template #anmelden>
+              <a class="nav-link" [routerLink]="[AppRouteSignIn]"> Anmelden </a>
+            </ng-template>
           </li>
         </ul>
       </div>

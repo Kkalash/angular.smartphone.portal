@@ -13,7 +13,7 @@ import { AppRoute } from '../enums/app-route.enum';
   providedIn: 'root',
 })
 export class AuthenticationService {
-  readonly user = 'user';
+  private readonly user = 'user';
   userData: any; // Save logged in user data
 
   constructor(
@@ -37,45 +37,47 @@ export class AuthenticationService {
   }
 
   // Sign in with email/password
-  public signIn(email: string, password: string): Promise<void> {
-    return this.afAuth
-      .signInWithEmailAndPassword(email, password)
-      .then((result) => {
-        this.ngZone.run(() => {
-          this.router.navigate([AppRoute.SmartphoneList]);
-        });
-        this.setUserData(result.user);
-      })
-      .catch((error) => {
-        window.alert(error.message);
+  public async signIn(email: string, password: string): Promise<void> {
+    try {
+      const result = await this.afAuth.signInWithEmailAndPassword(
+        email,
+        password,
+      );
+      this.ngZone.run(() => {
+        this.router.navigate([AppRoute.SmartphoneList]);
       });
+      this.setUserData(result.user);
+    } catch (error) {
+      window.alert(error.message);
+    }
   }
 
   // Sign up with email/password
-  public signUp(email: string, password: string): Promise<void> {
-    return this.afAuth
-      .createUserWithEmailAndPassword(email, password)
-      .then((result) => {
-        /* Call the SendVerificaitonMail() function when new user sign
-        up and returns promise */
-        this.sendVerificationMail();
-        this.setUserData(result.user);
-      })
-      .catch((error) => {
-        window.alert(error.message);
-      });
+  public async signUp(email: string, password: string): Promise<void> {
+    try {
+      const result = await this.afAuth.createUserWithEmailAndPassword(
+        email,
+        password,
+      );
+      /* Call the SendVerificaitonMail() function when new user sign
+      up and returns promise */
+      this.sendVerificationMail();
+      this.setUserData(result.user);
+    } catch (error) {
+      window.alert(error.message);
+    }
   }
   // Send email verfificaiton when new user sign up
-  public sendVerificationMail(): Promise<void> {
+  public async sendVerificationMail(): Promise<void> {
     return this.afAuth.currentUser
       .then((u: any) => u.sendEmailVerification())
       .then(() => {
-        this.router.navigate(['verify-email-address']);
+        this.router.navigate([`/${AppRoute.Auth}/${AppRoute.VerfiyEmail}`]);
       });
   }
 
   // Reset Forggot password
-  public forgotPassword(passwordResetEmail: string): Promise<void> {
+  public async forgotPassword(passwordResetEmail: string): Promise<void> {
     return this.afAuth
       .sendPasswordResetEmail(passwordResetEmail)
       .then(() => {
@@ -93,16 +95,17 @@ export class AuthenticationService {
   }
 
   // Sign in with Google
-  public googleAuth(): Promise<void> {
-    return this.authLogin(new auth.GoogleAuthProvider()).then((res: any) => {
-      if (res) {
-        this.router.navigate(['dashboard']);
-      }
-    });
+  public async googleAuth(): Promise<void> {
+    return this.authLogin(new auth.GoogleAuthProvider());
+  }
+
+  // Sign in with Google
+  public async facebookAuth(): Promise<void> {
+    return this.authLogin(new auth.FacebookAuthProvider());
   }
 
   // Auth logic to run auth providers
-  public authLogin(provider: any): Promise<void> {
+  public async authLogin(provider: any): Promise<void> {
     return this.afAuth
       .signInWithPopup(provider)
       .then((result) => {
@@ -136,10 +139,9 @@ export class AuthenticationService {
   }
 
   // Sign out
-  public signOut(): Promise<void> {
+  public async signOut(): Promise<void> {
     return this.afAuth.signOut().then(() => {
       localStorage.removeItem(this.user);
-      this.router.navigate(['sign-in']);
     });
   }
 }
