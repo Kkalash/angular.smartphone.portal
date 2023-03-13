@@ -1,10 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { AppRoute } from '../../_shared/enums/app-route.enum';
 import { RouteParam } from '../../_shared/enums/route-param.enum';
 import { Kommentar } from '../../_shared/models/kommentar.model';
 import { SmartphoneCard } from '../../_shared/models/smartphone-card.model';
+import { AuthenticationService } from '../../_shared/servicers/authentication.service';
 import { KommentarService } from '../../_shared/servicers/kommentar.service';
 import { SmartphoneListService } from '../../_shared/servicers/smartphon-list.service';
 
@@ -28,6 +30,7 @@ export class SmartphoneReviewComponent implements OnInit {
   constructor(
     private kommentarService: KommentarService,
     private smartphoneListService: SmartphoneListService,
+    private authService: AuthenticationService,
     private route: ActivatedRoute,
     private router: Router,
   ) {}
@@ -48,7 +51,7 @@ export class SmartphoneReviewComponent implements OnInit {
       const kommentar: Kommentar = {
         id: '',
         smartphoneId: this.item.id,
-        nameAnzeige: 'User',
+        nameAnzeige: this.authService.userData.displayName,
         titel: this.titel,
         text: this.textarea,
         erfassungAm: new Date(
