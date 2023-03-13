@@ -260,11 +260,13 @@ export class WebApiData {
     {
       id: '5',
       name: 'Apple iPhone 14 Pro ',
-      preis: 1299.00,
+      preis: 1299.0,
       bildschirmgrosse: '6,1',
       aufloesung: '	Super Retina XDR',
       gewicht: '206 g',
-      beschreibung: 'iPhone 14 Pro. Nimm mit der 48 MP Hauptkamera unglaubliche Details auf. Mit der Dynamic Island und dem Always‑On Display erlebst du das iPhone auf ganz neue Art. Und die Unfallerkennung, ein neues Sicherheitsfeature, ruft Hilfe, wenn du es nicht kannst.',
+      beschreibung: `iPhone 14 Pro. Nimm mit der 48 MP Hauptkamera unglaubliche Details auf. Mit der
+         Dynamic Island und dem Always‑On Display erlebst du das iPhone auf ganz neue Art.
+         Und die Unfallerkennung, ein neues Sicherheitsfeature, ruft Hilfe, wenn du es nicht kannst.`,
       prozessor: WebApiData.prozessoren[4],
       ranking: 5.0,
       bewerteranzahl: 145,
@@ -276,18 +278,20 @@ export class WebApiData {
         'https://i.otto.de/i/otto/0b2875d3-6ba3-558f-b09a-992d9a108110?w=2128&h=2500',
         'https://i.otto.de/i/otto/a5a4a7d0-392f-5c26-bb42-bc2937040684?w=2500&h=2500',
       ],
-      preisKategory: WebApiData.preisKategorien[3],
-      hersteller: WebApiData.hersteller[4],
+      preisKategory: WebApiData.preisKategorien[2],
+      hersteller: WebApiData.hersteller[3],
       kommentare: [],
     },
     {
       id: '6',
       name: 'Apple iPhone 14 Pro Max',
-      preis: 1449.00,
+      preis: 1449.0,
       bildschirmgrosse: '6,7',
       aufloesung: 'Super Retina XDR',
       gewicht: '240 g',
-      beschreibung: 'Das iPhone 14 Pro Max. Nimm mit der 48 MP Hauptkamera unglaubliche Details auf. Mit der Dynamic Island und dem Always‑On Display erlebst du das iPhone auf ganz neue Art. Und die Unfallerkennung, ein neues Sicherheitsfeature, ruft Hilfe, wenn du es nicht kannst.',
+      beschreibung: `Das iPhone 14 Pro Max. Nimm mit der 48 MP Hauptkamera unglaubliche Details auf. Mit der
+        Dynamic Island und dem Always‑On Display erlebst du das iPhone auf ganz neue Art. Und die
+        Unfallerkennung, ein neues Sicherheitsfeature, ruft Hilfe, wenn du es nicht kannst.`,
       prozessor: WebApiData.prozessoren[4],
       ranking: 4.5,
       bewerteranzahl: 99,
@@ -299,19 +303,21 @@ export class WebApiData {
         'https://i.otto.de/i/otto/f8aa6852-1dd1-5196-b289-676dc54ddb6d?w=2128&h=2500',
         'https://i.otto.de/i/otto/f194855f-529d-5bf4-aa69-6b4a52656967?w=2500&h=2500',
       ],
-      preisKategory: WebApiData.preisKategorien[3],
-      hersteller: WebApiData.hersteller[4],
+      preisKategory: WebApiData.preisKategorien[2],
+      hersteller: WebApiData.hersteller[3],
       kommentare: [],
     },
     {
       id: '7',
       name: 'Apple iPhone 13',
-      preis: 896.90,
+      preis: 896.9,
       bildschirmgrosse: '6,1',
       aufloesung: 'Super Retina XDR',
       gewicht: '173 g',
-      beschreibung: 'iPhone13.Das fortschrittlichste Zwei-Kamera-System, das es je auf einem iPhone gab.Superschneller A15Bionic Chip.Ein großer Sprung bei der Batterielaufzeit.Robustes Design.Superschnelles 5G. Und ein helleres Super Retina XDR Display.',
-      prozessor: WebApiData.prozessoren[5],
+      beschreibung: `iPhone13.Das fortschrittlichste Zwei-Kamera-System, das es je auf einem iPhone gab. Superschneller
+         A15Bionic Chip.Ein großer Sprung bei der Batterielaufzeit.Robustes Design.Superschnelles 5G.
+         Und ein helleres Super Retina XDR Display.`,
+      prozessor: WebApiData.prozessoren[4],
       ranking: 5.0,
       bewerteranzahl: 422,
       bilder: [
@@ -324,9 +330,8 @@ export class WebApiData {
         'https://i.otto.de/i/otto/83bffae6-96bf-5d20-8774-b7aedebd6b44?w=2500&h=2500',
       ],
       preisKategory: WebApiData.preisKategorien[2],
-      hersteller: WebApiData.hersteller[4],
+      hersteller: WebApiData.hersteller[3],
       kommentare: [],
     },
-
   ];
 }
