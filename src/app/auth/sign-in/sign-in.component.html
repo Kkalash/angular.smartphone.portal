@@ -17,8 +17,8 @@
           <input
             type="text"
             class="form-control"
-            placeholder="Benutzername"
-            #userName
+            placeholder="Email"
+            #email
             required
           />
         </div>
@@ -40,7 +40,7 @@
         <button
           class="btn btn-outline-primary medium-btn"
           type="submit"
-          (click)="loginForm.checkValidity() ? authService.signIn(userName.value, userPassword.value) : null"
+          (click)="loginForm.checkValidity() ? authService.signIn(email.value, userPassword.value) : null"
           >Anmelden</button
         >
       </form>
